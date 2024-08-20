@@ -1,6 +1,6 @@
 import uuid
 
-from core import database as db
+from . import database as db
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, text, Text, DateTime, DECIMAL, Float
 from sqlalchemy.dialects.postgresql import UUID
 
