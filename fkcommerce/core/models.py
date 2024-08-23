@@ -12,7 +12,7 @@ class Category(db.Model):
     name = Column(String(100), unique=True, nullable=False)
     slug = Column(String(200), unique=True, nullable=False)
     is_active = Column(Boolean, default=False)
-    parent_id = Column(Integer, ForeignKey('category.id'))
+    parent_id = Column(Integer, ForeignKey('category.id'), nullable=True)
 
     def __repr__(self):
         return f"<Name: {self.name}>"
