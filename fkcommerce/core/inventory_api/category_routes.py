@@ -16,6 +16,7 @@ def category():
 
 @inventory_category_api_blueprint.route('/category', methods=['POST'])
 @body(category_insert_schema)
+@response(category_insert_schema)
 def insert_category(kwargs):
     new_category = Category(**kwargs)
     database.session.add(new_category)

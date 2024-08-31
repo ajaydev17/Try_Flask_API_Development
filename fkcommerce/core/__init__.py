@@ -40,3 +40,4 @@ def initialize_extension(app):
 def register_blueprint(app):
     from . import inventory_api
     app.register_blueprint(inventory_api.inventory_category_api_blueprint, url_prefix='/api')
+    app.register_blueprint(inventory_api.inventory_product_api_blueprint, url_prefix='/api')
