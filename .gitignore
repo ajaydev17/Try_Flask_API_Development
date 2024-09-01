@@ -262,4 +262,7 @@ pyrightconfig.json
 # Pycharm related files
 .idea/
 
+# migration files
+fkcommerce/migrations
+
 # End of https://www.toptal.com/developers/gitignore/api/python,flask

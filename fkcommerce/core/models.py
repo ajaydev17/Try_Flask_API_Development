@@ -59,17 +59,18 @@ class ProductLine(db.Model):
     def __repr__(self):
         return f"ProductLine {self.id}"
 
-    class ProductImage(db.Model):
-        __tablename__ = 'product_image'
 
-        id = Column(Integer, primary_key=True)
-        alternative_text = Column(String(200))
-        url = Column(String)
-        order = Column(Integer)
-        product_line_id = Column(Integer, ForeignKey('product_line.id'))
+class ProductImage(db.Model):
+    __tablename__ = 'product_image'
 
-        def __repr__(self):
-            return f"ProductImage {self.id}"
+    id = Column(Integer, primary_key=True)
+    alternative_text = Column(String(200))
+    url = Column(String)
+    order = Column(Integer)
+    product_line_id = Column(Integer, ForeignKey('product_line.id'))
+
+    def __repr__(self):
+        return f"ProductImage {self.id}"
 
 
 class SeasonalEvent(db.Model):

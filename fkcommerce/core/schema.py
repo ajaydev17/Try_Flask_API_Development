@@ -24,3 +24,22 @@ class ProductInsertSchema(marshmallow.Schema):
     category_id = marshmallow.Integer()
     stock_status = marshmallow.String(dump_only=True)
     created_at = marshmallow.DateTime(dump_only=True)
+
+
+class ProductLineInsertSchema(marshmallow.Schema):
+    price = marshmallow.Decimal(places=2)
+    sku = marshmallow.String(dump_only=True)
+    stock_qty = marshmallow.Integer()
+    is_active = marshmallow.Boolean(required=True)
+    order = marshmallow.Integer()
+    weight = marshmallow.Float()
+    created_at = marshmallow.DateTime(dump_only=True)
+    product_id = marshmallow.Integer()
+
+
+class ProductImageInsertSchema(marshmallow.Schema):
+    alternative_text = marshmallow.String(max_length=200)
+    url = marshmallow.String()
+    order = marshmallow.Integer()
+    product_line_id = marshmallow.Integer()
+
