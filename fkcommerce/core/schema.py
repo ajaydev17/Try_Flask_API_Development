@@ -43,3 +43,14 @@ class ProductImageInsertSchema(marshmallow.Schema):
     order = marshmallow.Integer()
     product_line_id = marshmallow.Integer()
 
+
+class AttributeInsertSchema(marshmallow.Schema):
+    name = marshmallow.String(max_length=200)
+    description = marshmallow.String()
+
+
+class SeasonalEventInsertSchema(marshmallow.Schema):
+    start_date = marshmallow.DateTime(dump_only=True)
+    end_date = marshmallow.DateTime(dump_only=True)
+    name = marshmallow.String(max_length=100, required=True)
+
