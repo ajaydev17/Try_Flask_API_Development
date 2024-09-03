@@ -6,5 +6,7 @@ inventory_product_line_api_blueprint = Blueprint('inventory_product_line_api', _
 inventory_product_image_api_blueprint = Blueprint('inventory_product_line_image_api', __name__)
 inventory_attribute_api_blueprint = Blueprint('inventory_attribute_api_blueprint', __name__)
 inventory_seasonal_event_api_blueprint = Blueprint('inventory_seasonal_event_api_blueprint', __name__)
+inventory_product_type_api_blueprint = Blueprint('inventory_product_type_api_blueprint', __name__)
+inventory_attribute_value_api_blueprint = Blueprint('inventory_attribute_value_api_blueprint', __name__)
 
-from . import category_routes, product_routes, product_line_routes, product_image_routes  # noqa: F401
+from . import category_routes, product_routes, product_line_routes, product_image_routes, product_type_routes  # noqa: F401

@@ -54,3 +54,14 @@ class SeasonalEventInsertSchema(marshmallow.Schema):
     end_date = marshmallow.DateTime(dump_only=True)
     name = marshmallow.String(max_length=100, required=True)
 
+
+class ProductTypeInsertSchema(marshmallow.Schema):
+    name = marshmallow.String(max_length=100)
+    parent_id = marshmallow.Integer(allow_none=True)
+
+
+class AttributeValueInsertSchema(marshmallow.Schema):
+    attribute_value = marshmallow.String(max_length=100, required=True)
+    attribute_id = marshmallow.Integer()
+
+

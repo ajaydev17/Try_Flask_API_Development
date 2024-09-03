@@ -45,3 +45,5 @@ def register_blueprint(app):
     app.register_blueprint(inventory_api.inventory_product_image_api_blueprint, url_prefix='/api')
     app.register_blueprint(inventory_api.inventory_attribute_api_blueprint, url_prefix='/api')
     app.register_blueprint(inventory_api.inventory_seasonal_event_api_blueprint, url_prefix='/api')
+    app.register_blueprint(inventory_api.inventory_product_type_api_blueprint, url_prefix='/api')
+    app.register_blueprint(inventory_api.inventory_attribute_value_api_blueprint, url_prefix='/api')
