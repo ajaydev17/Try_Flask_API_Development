@@ -24,6 +24,8 @@ class ProductInsertSchema(marshmallow.Schema):
     category_id = marshmallow.Integer()
     stock_status = marshmallow.String(dump_only=True)
     created_at = marshmallow.DateTime(dump_only=True)
+    seasonal_event = marshmallow.Integer(allow_none=True)
+    product_type_ids = marshmallow.List(marshmallow.Integer(), required=True)
 
 
 class ProductLineInsertSchema(marshmallow.Schema):

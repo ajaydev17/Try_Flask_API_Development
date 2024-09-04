@@ -3,6 +3,7 @@ import uuid
 from . import database as db
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, text, Text, DateTime, DECIMAL, Float
 from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.orm import relationship
 
 
 class Category(db.Model):
@@ -38,6 +39,10 @@ class Product(db.Model):
     stock_status = Column(String(100), default='OUT_OF_STOCK')
     category_id = Column(Integer, ForeignKey('category.id'))
     seasonal_event = Column(Integer, ForeignKey('seasonal_event.id'), nullable=True)
+
+    product_types = relationship(
+        "ProductType", secondary='product_product_type', back_populates='products'
+    )
 
     def __repr__(self):
         return f"<Name: {self.name}>"
@@ -113,6 +118,10 @@ class ProductType(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(100))
     parent_id = Column(Integer, ForeignKey('product_type.id'))
+
+    products = relationship(
+        'Product', secondary='product_product_type', back_populates='product_types'
+    )
 
     def __repr__(self):
         return f"<Name: {self.name}>"
