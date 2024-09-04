@@ -37,6 +37,7 @@ class ProductLineInsertSchema(marshmallow.Schema):
     weight = marshmallow.Float()
     created_at = marshmallow.DateTime(dump_only=True)
     product_id = marshmallow.Integer()
+    product_attribute_ids = marshmallow.List(marshmallow.Integer(), required=True)
 
 
 class ProductImageInsertSchema(marshmallow.Schema):

@@ -61,6 +61,10 @@ class ProductLine(db.Model):
     created_at = Column(DateTime, server_default=db.text('CURRENT_TIMESTAMP'))
     product_id = Column(Integer, ForeignKey('product.id'))
 
+    product_attributes = relationship(
+        'AttributeValue', secondary='product_line_attribute_value', back_populates='product_lines'
+    )
+
     def __repr__(self):
         return f"ProductLine {self.id}"
 
@@ -107,6 +111,10 @@ class AttributeValue(db.Model):
     id = Column(Integer, primary_key=True)
     attribute_value = Column(String(100))
     attribute_id = Column(Integer, ForeignKey('attribute.id'))
+
+    product_lines = relationship(
+        'ProductLine', secondary='product_line_attribute_value', back_populates='product_attributes'
+    )
 
     def __repr__(self):
         return self.attribute_value
